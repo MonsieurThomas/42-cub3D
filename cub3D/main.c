@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rthomas <rthomas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:10:16 by rthomas           #+#    #+#             */
-/*   Updated: 2023/01/13 14:43:56 by rthomas          ###   ########.fr       */
+/*   Updated: 2023/01/29 16:33:49 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,6 @@ void raycasting (t_data *data)
 {
         for(data->x = 0; data->x < data->img_width; (data->x)++)
         {
-            //compute the projected ray angle into world space
             data->cameraX = 2 * data->x / (double) data->img_width - 1;
             data->rayDirX = data->dirX + data->planeX * data->cameraX;
             data->rayDirY = data->dirY + data->planeY * data->cameraX;
@@ -189,7 +188,6 @@ void raycasting (t_data *data)
                 data->deltaDistX = sqrt(1 + (data->rayDirY * data->rayDirY) / (data->rayDirX * data->rayDirX));
             
             data->hit = 0;
-            //Figure out the step direction and initial distance to a side
             if (data->rayDirX < 0) {
                 data->stepX = -1;
                 data->sideDistX = (data->posX - data->mapX) * data->deltaDistX;
@@ -210,9 +208,7 @@ void raycasting (t_data *data)
                 data->sideDistY = (data->mapY + 1.0 - data->posY) * data->deltaDistY;
             }
 
-            //Perform DDA
             while (data->hit == 0) {
-                //jump to next map square, OR in x-direction, OR in y-direction
                 if (data->sideDistX < data->sideDistY)
                 {
                     data->sideDistX += data->deltaDistX;
@@ -239,7 +235,6 @@ void raycasting (t_data *data)
                 data->perpWallDist = ((double)data->mapY - data->posY + (1 - (double)data->stepY) / 2) / data->rayDirY;
             data->lineHeight = ((double)data->img_height * data->ratio / data->perpWallDist);
             
-            //calculate lowest and highest pixel to fill in current stripe
             data->drawStart = -data->lineHeight / 2 + data->img_height / 2;
             if(data->drawStart < 0)
                 data->drawStart = 0;
@@ -289,7 +284,6 @@ int     mouvement(t_data *data)
             data->posY -= data->dirY * data->moveSpeed;
         }
     }
-    //rotate to the right
     if (data->leftward)
     {
         printf("We are in leftward\n");
@@ -298,11 +292,9 @@ int     mouvement(t_data *data)
 	    if (data->map[(int)(floor(data->posX))][(int)(floor((data->posY + data->dirX * data->moveSpeed)))] == '0')
 	    	data->posY += data->dirX * data->moveSpeed / 2;
     }
-    //rotate to the left
     if (data->rightward)
     {
         printf("We are in rightward\n");
-      //both camera direction and camera plane must be rotated
         if (data->map[(int)floor((data->posX + data->dirY * data->moveSpeed))][(int)floor(data->posY)] == '0')
             data->posX += data->dirY * data->moveSpeed / 2;
         if (data->map[(int)(floor(data->posX))][(int)floor((data->posY - data->dirX * data->moveSpeed))] == '0')
@@ -360,7 +352,6 @@ int main(int ac, char **av)
     read_map(&data);
     int i = 0;
     int j = 0;
-    // input into data->map
     //printf("this is data[0][0] = %c\n", data.map[0][0]);
     // printf("this is data->i = %d\n", data.i);
     // printf("this is data->j = %d\n", data.j);
@@ -384,40 +375,21 @@ int main(int ac, char **av)
     // printf("this is i = %d\n", i);
     // printf("this is j = %d\n", j);
     
-    // map
     //show_minimap(&data, i, j);
     data.img_width = 600;
     data.img_height = 600;
     data.posX = 2.0;
-    data.posY = 2.0;  //x and y start position
+    data.posY = 2.0;
     data.dirX = -1.0;
-    data.dirY = 0.0; //initial direction vector
+    data.dirY = 0.0;
     data.planeX = 0.0;
-    data.planeY = 0.66; //the 2d raycaster version of camera plane
+    data.planeY = 0.66; 
     data.ratio =((double)data.img_width / (double)data.img_height) / (4.0 / 3.0);
     data.moveSpeed = 0.08;
-    data.time = 0; //time of current frame
-    data.oldTime = 0; //time of previous frame
-    data.w = 600; //time of previous frame
+    data.time = 0; 
+    data.oldTime = 0;
+    data.w = 600;
     data.blackColor = 7777777;
-    
-    // data.img_width = 600;
-    // data.img_height = 600;
-    // data.posX = 22.0;
-    // data.posY = 12;  //x and y start position
-    // data.dirX = 0;
-    // data.dirY = 0.0; //initial direction vector
-    // data.planeX = 0.000000000001;
-    // data.planeY = 0.000000000001; //the 2d raycaster version of camera plane
-    // data.ratio = 0;
-    // data.moveSpeed = 0.08;
-    // data.time = 0; //time of current frame
-    // data.oldTime = 0; //time of previous frame
-    // data.w = 600; //time of previous frame
-    // data.forward = 0;
-	// data.backward = 0;
-	// data.leftward = 0;
-	// data.rightward = 0;
     
     make_wall(&data);
     return (0);
