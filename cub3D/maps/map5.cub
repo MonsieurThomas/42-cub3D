@@ -1,0 +1,11 @@
+NO ./texture/orange.xpm 
+SO ./texture/pomme.xpm
+WE ./texture/poire.xpm
+EA ./texture/mangue.xpm
+
+C 0,60,0
+F 1,40,80 
+
+111
+1N1
+111
