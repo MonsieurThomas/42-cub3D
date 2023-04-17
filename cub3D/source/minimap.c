@@ -6,28 +6,31 @@
 /*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 17:55:45 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/08 17:59:42 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/17 22:56:24 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/struc.h"
+#include "../include/cub.h"
 
 void	show_minimap_loop(t_data *d, int i, int x, int y)
 {
-	while ((d->debX + x) < 549 && d->map[x / d->divX])
+	while ((d->deb_x + x) < 549 && d->map[x / d->div_x])
 	{
 		y = 0;
-		while ((d->debY + y) < 549)
+		while ((d->deb_y + y) < 549)
 		{
-			if ((ft_strlen(d->map[x / d->divX]) - 1 >= (y / d->divY)) \
-			&& (i - 1 >= (x / d->divX)))
+			if ((ft_strlen(d->map[x / d->div_x]) - 1 >= (y / d->div_y)) \
+			&& (i - 1 >= (x / d->div_x)))
 			{
-				if ((d->map[x / d->divX][y / d->divY]) == '1')
-					my_mlx_pixel_put(d, (d->debY + y), (d->debX + x), 0xFF0000);
-				else if ((d->map[x / d->divX][y / d->divY]) == '0')
-					my_mlx_pixel_put(d, (d->debY + y), (d->debX + x), 0);
-				if (y / d->divY == (int)d->posY && x / d->divX == (int)d->posX)
-					my_mlx_pixel_put(d, (d->debY + y), (d->debX + x), 0x0000FF);
+				if ((d->map[x / d->div_x][y / d->div_y]) == '1')
+					my_mlx_pixel_put(d, (d->deb_y + y), (d->deb_x + x), \
+					0xFF0000);
+				else if ((d->map[x / d->div_x][y / d->div_y]) == '0')
+					my_mlx_pixel_put(d, (d->deb_y + y), (d->deb_x + x), 0);
+				if (y / d->div_y == (int)d->player_y && x / d->div_x == \
+				(int)d->player_x)
+					my_mlx_pixel_put(d, (d->deb_y + y), (d->deb_x + x), \
+					0x0000FF);
 			}
 			y++;
 		}
@@ -54,7 +57,7 @@ void	show_minimap(t_data *data)
 		data->i++;
 	}
 	data->j = data->jmax;
-	data->divX = 100 / data->i;
-	data->divY = 100 / data->j;
+	data->div_x = 100 / data->i;
+	data->div_y = 100 / data->j;
 	show_minimap_loop(data, data->i, x, y);
 }

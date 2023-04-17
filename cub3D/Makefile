@@ -6,7 +6,7 @@
 #    By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 12:49:39 by rthomas           #+#    #+#              #
-#    Updated: 2023/04/08 18:28:26 by romainthoma      ###   ########.fr        #
+#    Updated: 2023/04/09 05:56:23 by romainthoma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 SOURCES =	source/main.c \
 			source/raycasting_part.c \
+			source/raycasting_draw.c \
 			source/parsing_main.c \
 			source/parsing_arg.c \
 			source/parsing_wall_color.c \
 			source/parsing_player.c \
 			source/parsing_map.c \
+			source/parsing_map2.c \
+			source/key.c \
 			source/mouvement.c \
 			source/minimap.c \
 			source/random.c \

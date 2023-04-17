@@ -6,11 +6,11 @@
 /*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:03:25 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/08 18:03:26 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/17 22:11:21 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/struc.h"
+#include "../include/cub.h"
 
 int	get_nb_line(t_data *data)
 {

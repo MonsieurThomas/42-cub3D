@@ -6,13 +6,13 @@
 /*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:05:53 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/08 18:06:23 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/17 22:55:24 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/struc.h"
+#include "../include/cub.h"
 
-void	get_textu_addr(t_data *data)
+int	get_textu_addr(t_data *data)
 {
 	int	i;
 
@@ -24,9 +24,14 @@ void	get_textu_addr(t_data *data)
 		&data->texture[i].endian);
 		i++;
 	}
+	if (data->texture[0].addr == NULL || \
+	data->texture[1].addr == NULL || data->texture[2].addr == NULL
+		|| data->texture[3].addr == NULL)
+		return (ft_print_error("Error\nProbleme de textures", NULL));
+	return (0);
 }
 
-unsigned int	get_color_textu(t_data *data, int x, int y, int nb)
+unsigned int	get_color_texture(t_data *data, int x, int y, int nb)
 {
 	char	*dst;
 
