@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:00:48 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 16:49:08 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:51:15 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	is_color_legit(t_data *data, char letter)
 {
 	if (letter == 'F')
 	{
-		if (data->f1 < 0 || data->f2 < 0 || data->f3 < 0 || \
+		if (data->color_f != 1 || data->f1 < 0 || data->f2 < 0 || data->f3 < 0 || \
 		data->f1 > 255 || data->f2 > 255 || data->f3 > 255)
 			return (ft_print_error("Error\nProbleme de couleurs", NULL));
 		else
@@ -44,7 +44,7 @@ int	is_color_legit(t_data *data, char letter)
 	}
 	if (letter == 'C')
 	{
-		if (data->c1 < 0 || data->c2 < 0 || data->c3 < 0 || \
+		if (data->color_c != 1 || data->c1 < 0 || data->c2 < 0 || data->c3 < 0 || \
 		data->c1 > 255 || data->c2 > 255 || data->c3 > 255)
 			return (ft_print_error("Error\nProbleme de couleurs2", NULL));
 		else
@@ -91,6 +91,21 @@ void	printf_strs(char **strs) //*************
 	}
 }
 
+int	nb_commas(char *str)
+{
+	int	nb_commas;
+	int	i;
+
+	nb_commas = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			nb_commas++;
+		i++;
+	}
+	return (nb_commas);
+}
 
 
 int	get_color(t_data *data, int i)
@@ -99,8 +114,10 @@ int	get_color(t_data *data, int i)
 	char	**tab;
 
 	str = ms_split(data->map[i], ' ');
+	if (!str || !str[0] || !str[1] || nb_commas(str[1]) != 2)
+		return (ft_print_error("Error\nProbleme de couleurs", NULL));
 	tab = ms_split(str[1], ',');
-	if (!str || !str[0] || !str[1] || !tab || !tab[0]|| !tab[1] || !tab[2])
+	if (!tab || !tab[0]|| !tab[1] || !tab[2])
 		return (ft_print_error("Error\nProbleme de couleurs", NULL));
 	if (tab[3] || str[2])
 	{

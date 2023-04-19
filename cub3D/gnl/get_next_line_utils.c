@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rthomas <rthomas@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 19:21:53 by rthomas           #+#    #+#             */
-/*   Updated: 2022/04/25 20:22:37 by rthomas          ###   ########.fr       */
+/*   Updated: 2023/04/19 18:58:18 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ char	*ft_strdup(char *s1)
 
 	i = 0;
 	j = 0;
+	if (!s1 || s1[i])
+		return (0);
 	while (s1[i] != '\0')
 		i++;
 	newstr = (char *)malloc(sizeof (char) * (i + 1));

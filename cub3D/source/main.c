@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:10:16 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/19 16:52:02 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:07:27 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac < 2 || ac > 2)
-		return (ft_print_error("Error\n Probleme d'arguments", NULL));
+		return (ft_print_error("Error\nProbleme d'arguments", NULL));
 	if (is_av1_legit(av[1]))
 		return (1);
 	data.av = av[1];

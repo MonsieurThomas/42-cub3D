@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:41:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 14:01:11 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:57:07 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_any_weird_char(t_data *data)
 			if (data->map[i][j] != '0' && data->map[i][j] != '1' && \
 			(data->map[i][j] < 9 || data->map[i][j] > 13) && \
 			data->map[i][j] != ' ' && data->map[i][j] != '\n')
-				return (ft_print_error("Error\nProbleme de carte", NULL));
+				return (ft_print_error("Error\nProbleme de carte2", NULL));//2
 			j++;
 		}
 		i++;

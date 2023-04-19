@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:42:21 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 14:20:11 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:32:22 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ int	check_openning_texture(t_data *data)
 	return (0);
 }
 
+int	is_other_element(t_data *data, int i)
+{
+	int	j;
+
+	j = 0;
+	while (data->map[i][j])
+	{
+		if (data->map[i][j] != ' ' && data->map[i][j] != '1')
+			return (ft_print_error("Error\nElement problem", NULL));
+		j++;
+	}
+	return (0);
+}
+
 int	parsing_main_loop(t_data *data)
 {
 	if (!ft_strncmp(data->map[data->i], "NO ", 3) || \
@@ -51,6 +65,8 @@ int	parsing_main_loop(t_data *data)
 	else if (!ft_strncmp(data->map[data->i], "F ", 2) || \
 	!ft_strncmp(data->map[data->i], "C ", 2))
 		data->error += get_color(data, data->i);
+	else if (is_other_element(data, data->i))
+		return (1);
 	else if (data->wall == 4 && data->color_c && data->color_f)
 	{
 		if (is_beginning_of_map(data, data->i))
@@ -61,7 +77,7 @@ int	parsing_main_loop(t_data *data)
 		}
 	}
 	if (data->error)
-		return (1);
+		return (1);		
 	return (0);
 }
 
@@ -77,7 +93,7 @@ int	parsing_main(t_data *data)
 		(data->i)++;
 	}
 	if (!data->is_map)
-		return (ft_print_error("Error\nProbleme de carteee", NULL));
+		return (ft_print_error("Error\nProbleme de carte1", NULL));//1
 	if (data->wall != 4 || !data->color_c || !data->color_f)
 		return (ft_print_error("Error\nProbleme de textures", NULL));
 	if (check_openning_texture(data))

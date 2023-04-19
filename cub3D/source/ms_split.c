@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:34:05 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/19 16:45:41 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:13:22 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ static t_count	*ft_count_init(void)
 
 	nbr = (t_count *)malloc(sizeof(t_count));
 	if (!nbr)
-	{
-		perror("");
 		return (NULL);
-	}
 	nbr->count = 0;
 	nbr->j = 0;
 	nbr->start = 0;
@@ -81,10 +78,7 @@ char	*ms_substr(char *s, unsigned int start, size_t len)
 		len = 0;
 	str = (char *)malloc(sizeof(*str) * (len + 2));
 	if (!str)
-	{
-		perror("");
 		return (NULL);
-	}
 	i = -1;
 	while (++i < len)
 		str[i] = s[start + i];
@@ -138,7 +132,6 @@ char	**ms_split(char *s, char c)
 	if (!strs)
 	{
 		free(n);
-		perror("");
 		return (NULL);
 	}
 	ft_fillstrs(s, c, strs, n);

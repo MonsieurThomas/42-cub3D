@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:03:25 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:11:21 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/19 19:03:49 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	read_map(t_data *data)
 	{
 		line = get_next_line(fd);
 		data->map[data->i] = ft_strdup(line);
+		printf("data->i:%d\n", data->i);//*************SEGFAULT APRES SUREMENT FT_STRLEN
 		if (data->map[data->i][ft_strlen(line) - 1] == '\n')
 			data->map[data->i][ft_strlen(line) - 1] = 0;
 		free(line);
@@ -54,7 +55,7 @@ int	read_map(t_data *data)
 	}
 	if (data->i < 3)
 	{
-		ft_putstr_fd("Error\nProbleme de carte\n", 1);
+		ft_putstr_fd("Error\nProbleme de carte12\n", 1);//12
 		return (0);
 	}
 	close(fd);
