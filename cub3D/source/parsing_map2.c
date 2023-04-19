@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:44:13 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:52:21 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/19 14:09:25 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ void	tab_to_space(t_data *data)
 
 int	check_around_each_zero(t_data *data, int i, int j)
 {
+	if (i < 1 || j < 1 || !data->map || !data->map[i - 1] || !data->map[i] || !data->map[i + 1])
+		return (ft_print_error("Error\nProbleme de carte", NULL));
+	if (!data->map[i - 1][j] || !data->map[i][j - 1] || !data->map[i][j + 1] || !data->map[i + 1][j])
+		return (ft_print_error("Error\nProbleme de carte", NULL));
 	if (data->map[i - 1][j] != '1' && data->map[i - 1][j] != '0')
 		return (ft_print_error("Error\nProbleme de carte", NULL));
 	if (data->map[i + 1][j] != '1' && data->map[i + 1][j] != '0')

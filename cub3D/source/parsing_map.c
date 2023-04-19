@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:41:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:51:47 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/19 14:01:11 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

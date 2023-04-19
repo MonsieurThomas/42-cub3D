@@ -3,19 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+         #
+#    By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 12:49:39 by rthomas           #+#    #+#              #
-#    Updated: 2023/04/09 05:56:23 by romainthoma      ###   ########.fr        #
+#    Updated: 2023/04/19 13:36:35 by cleblais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = cub3D
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 SOURCES =	source/main.c \
+			source/ms_split.c \
 			source/raycasting_part.c \
 			source/raycasting_draw.c \
 			source/parsing_main.c \
@@ -41,7 +42,8 @@ OBJS = $(SOURCES:.c=.o)
 all:		libft $(NAME)
 
 $(NAME):	$(MLX) $(OBJS)
-			gcc $(CFLAGS) $(OBJS) ./libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -o $(NAME)
+			#gcc $(CFLAGS) $(OBJS) ./libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -o $(NAME)
+			gcc $(CFLAGS) $(OBJS) ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(MLX):
 				@$(MAKE) -C mlx

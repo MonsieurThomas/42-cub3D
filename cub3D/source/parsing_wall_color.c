@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_wall_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:00:48 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:48:57 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/19 16:49:08 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	put_wall_in_struct(t_data *data, int i)
 	char	**str;
 
 	data->wall++;
-	str = ft_split(data->map[i], ' ');
-	if (str[2])
+	str = ms_split(data->map[i], ' ');
+	if (!str || !str[0] || !str[1] || str[2])
 		return (ft_print_error("Error\nProbleme de textures", NULL));
 	if (!ft_strncmp(data->map[i], "NO ", 3))
 		data->no = ft_strdup(str[1]);
@@ -46,9 +46,7 @@ int	is_color_legit(t_data *data, char letter)
 	{
 		if (data->c1 < 0 || data->c2 < 0 || data->c3 < 0 || \
 		data->c1 > 255 || data->c2 > 255 || data->c3 > 255)
-		{
-			return (ft_print_error("Error\nProbleme de couleurs", NULL));
-		}
+			return (ft_print_error("Error\nProbleme de couleurs2", NULL));
 		else
 			data->ceil_color = (data->c1 << 16) | (data->c2 << 8) | (data->c3);
 	}
@@ -78,13 +76,32 @@ int	color_to_struct(t_data *data, char **tab, char letter)
 	return (0);
 }
 
+void	printf_strs(char **strs) //*************
+{
+	int	i;
+
+	i = 0;
+	if (strs)
+	{
+		while (strs[i])
+		{
+			printf("%d] %s\n", i, strs[i]);
+			i++;
+		}
+	}
+}
+
+
+
 int	get_color(t_data *data, int i)
 {
 	char	**str;
 	char	**tab;
 
-	str = ft_split(data->map[i], ' ');
-	tab = ft_split(str[1], ',');
+	str = ms_split(data->map[i], ' ');
+	tab = ms_split(str[1], ',');
+	if (!str || !str[0] || !str[1] || !tab || !tab[0]|| !tab[1] || !tab[2])
+		return (ft_print_error("Error\nProbleme de couleurs", NULL));
 	if (tab[3] || str[2])
 	{
 		free_tab(str);
@@ -92,9 +109,15 @@ int	get_color(t_data *data, int i)
 		return (ft_print_error("Error\nProbleme de couleurs", NULL));
 	}
 	if (!ft_strncmp(data->map[i], "F ", 2))
-		color_to_struct(data, tab, 'F');
+	{
+		if (color_to_struct(data, tab, 'F'))
+			return (1);
+	}
 	else
-		color_to_struct(data, tab, 'C');
+	{
+		if (color_to_struct(data, tab, 'C'))
+			return (1);
+	}
 	free_tab(str);
 	free_tab(tab);
 	return (0);
