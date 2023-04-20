@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:21:03 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/20 15:52:22 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:03:33 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ typedef struct s_data
 	int				is_changed;
 }					t_data;
 
-char				**ms_split(char *s, char c);
 void				raycasting(t_data *data);
 int					mouvement(t_data *data);
 void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -183,5 +182,7 @@ int					check_whole_frontier(t_data *data);
 void				perpwall_and_drawing(t_data *data);
 void				choose_texture(t_data *data);
 void				tab_to_space(t_data *data);
+int					nb_commas(char *str);
+char				**secure_split(char *s, char c);
 
 #endif

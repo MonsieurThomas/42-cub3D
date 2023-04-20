@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 21:41:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 15:59:35 by cleblais         ###   ########.fr       */
+/*   Created: 2023/04/20 18:12:51 by cleblais          #+#    #+#             */
+/*   Updated: 2023/04/20 18:12:52 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_any_weird_char(t_data *data)
 			if (data->map[i][j] != '0' && data->map[i][j] != '1' && \
 			(data->map[i][j] < 9 || data->map[i][j] > 13) && \
 			data->map[i][j] != ' ' && data->map[i][j] != '\n')
-				return (ft_print_error("Error\nProbleme de carte2", NULL));//2
+				return (ft_print_error("Error\nProbleme de carte", NULL));
 			j++;
 		}
 		i++;
@@ -57,7 +57,7 @@ int	is_frontier_around_zeros(t_data *data)
 		i++;
 	}
 	if (i != data->map_nb_lines)
-		return (ft_print_error("Error\nProbleme de carte33", NULL));//33
+		return (ft_print_error("Error\nProbleme de carte", NULL));
 	return (0);
 }
 

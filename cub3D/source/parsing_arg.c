@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_arg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 18:29:33 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:10:43 by romainthoma      ###   ########.fr       */
+/*   Created: 2023/04/20 18:12:32 by cleblais          #+#    #+#             */
+/*   Updated: 2023/04/20 18:12:35 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

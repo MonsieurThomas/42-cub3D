@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:10:16 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/19 17:07:27 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:23:09 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,11 @@ int	main(int ac, char **av)
 	innit_values(&data);
 	read_map(&data);
 	if (parsing_main(&data))
+	{
+		printf("======= LEAKS %s ========\n", av[1]);//******************
+		system("leaks cub3D");//***********
 		return (1);
+	}
 	data.player_x += 0.5;
 	data.player_y += 0.5;
 	make_wall(&data);

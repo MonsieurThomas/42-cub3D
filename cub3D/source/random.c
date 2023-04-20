@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:02:52 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:11:08 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/20 18:03:11 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,20 @@ int	ft_destroy_windows(t_data *data)
 	ft_putstr_fd("Game over\n", 1);
 	exit(1);
 	return (1);
+}
+
+int	nb_commas(char *str)
+{
+	int	nb_commas;
+	int	i;
+
+	nb_commas = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			nb_commas++;
+		i++;
+	}
+	return (nb_commas);
 }

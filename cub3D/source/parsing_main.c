@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 18:42:21 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 18:32:22 by cleblais         ###   ########.fr       */
+/*   Created: 2023/04/20 18:12:42 by cleblais          #+#    #+#             */
+/*   Updated: 2023/04/20 18:12:45 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	parsing_main_loop(t_data *data)
 		}
 	}
 	if (data->error)
-		return (1);		
+		return (1);
 	return (0);
 }
 
@@ -93,7 +93,7 @@ int	parsing_main(t_data *data)
 		(data->i)++;
 	}
 	if (!data->is_map)
-		return (ft_print_error("Error\nProbleme de carte1", NULL));//1
+		return (ft_print_error("Error\nProbleme de carte", NULL));
 	if (data->wall != 4 || !data->color_c || !data->color_f)
 		return (ft_print_error("Error\nProbleme de textures", NULL));
 	if (check_openning_texture(data))

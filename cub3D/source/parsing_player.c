@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 18:18:35 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:50:57 by romainthoma      ###   ########.fr       */
+/*   Created: 2023/04/20 18:13:04 by cleblais          #+#    #+#             */
+/*   Updated: 2023/04/20 18:13:05 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

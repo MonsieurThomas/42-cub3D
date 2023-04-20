@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_split.c                                         :+:      :+:    :+:   */
+/*   secure_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 13:34:05 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/19 17:13:22 by cleblais         ###   ########.fr       */
+/*   Created: 2023/04/20 18:05:26 by cleblais          #+#    #+#             */
+/*   Updated: 2023/04/20 18:11:35 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-size_t	ms_strlen(const char *s)
+typedef struct s_count
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
+	unsigned int	count;
+	unsigned int	j;
+	unsigned int	start;
+	size_t			len;
+}	t_count;
 
 void	free_tab_strs(char **str)
 {
@@ -40,14 +36,6 @@ void	free_tab_strs(char **str)
 		free(str);
 	}
 }
-
-typedef struct s_count
-{
-	unsigned int	count;
-	unsigned int	j;
-	unsigned int	start;
-	size_t			len;
-}	t_count;
 
 static t_count	*ft_count_init(void)
 {
@@ -70,11 +58,11 @@ char	*ms_substr(char *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (ms_strlen(s) == 0)
+	if (ft_strlen(s) == 0)
 		len = 0;
-	if (len > ms_strlen(s) - start)
-		len = ms_strlen(s) - start;
-	if (start > ms_strlen(s) - 1)
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	if (start > (unsigned int)(ft_strlen(s) - 1))
 		len = 0;
 	str = (char *)malloc(sizeof(*str) * (len + 2));
 	if (!str)
@@ -111,7 +99,7 @@ static void	ft_fillstrs(char *s, char c, char **strs, t_count *n)
 	strs[n->j] = 0;
 }
 
-char	**ms_split(char *s, char c)
+char	**secure_split(char *s, char c)
 {
 	t_count	*n;
 	char	**strs;

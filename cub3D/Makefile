@@ -6,17 +6,17 @@
 #    By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 12:49:39 by rthomas           #+#    #+#              #
-#    Updated: 2023/04/19 13:36:35 by cleblais         ###   ########.fr        #
+#    Updated: 2023/04/20 18:16:11 by cleblais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = cub3D
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 SOURCES =	source/main.c \
-			source/ms_split.c \
+			source/secure_split.c \
 			source/raycasting_part.c \
 			source/raycasting_draw.c \
 			source/parsing_main.c \
