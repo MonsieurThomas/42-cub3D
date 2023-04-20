@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:03:25 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 18:05:08 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:54:24 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	read_map(t_data *data)
 	}
 	if (data->i < 3)
 	{
-		ft_putstr_fd("Error\nProbleme de carte\n", 1);
+		ft_putstr_fd("Error\nProbleme de carte28\n", 1);//28
 		return (0);
 	}
 	close(fd);

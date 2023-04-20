@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:58 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/20 18:12:59 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:53:12 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,18 +86,18 @@ int	bad_coordinate(t_data *data, int x, int y)
 int	check_around_each_zero(t_data *data, int i, int j)
 {
 	if (i < 1 || j < 1 || !data->map)
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte11", NULL));//11
 	if (bad_coordinate(data, i - 1, j) || bad_coordinate(data, i, j - 1) \
 		|| bad_coordinate(data, i, j + 1) || bad_coordinate(data, i + 1, j))
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte12", NULL));//12
 	if (data->map[i - 1][j] != '1' && data->map[i - 1][j] != '0')
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte13", NULL));//13
 	if (data->map[i + 1][j] != '1' && data->map[i + 1][j] != '0')
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte14", NULL));//14
 	if (data->map[i][j + 1] != '1' && data->map[i][j + 1] != '0')
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte15", NULL));//15
 	if (data->map[i][j - 1] != '1' && data->map[i][j - 1] != '0')
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte16", NULL));//16
 	return (0);
 }
 
@@ -110,17 +110,17 @@ int	check_whole_frontier(t_data *data)
 	j = 0;
 	while (data->map[0][++i])
 		if (data->map[0][i] == '0')
-			return (ft_print_error("Error\nProbleme de carte", NULL));
+			return (ft_print_error("Error\nProbleme de carte17", NULL));//17
 	i = -1;
 	while (data->map[++i])
 		if (data->map[i][0] == '0' || \
 		data->map[i][ft_strlen(data->map[i]) - 1] == '0')
-			return (ft_print_error("Error\nProbleme de carte", NULL));
+			return (ft_print_error("Error\nProbleme de carte18", NULL));//18
 	i--;
 	while (data->map[i][j])
 	{
 		if (data->map[i][j] == '0')
-			return (ft_print_error("Error\nProbleme de carte", NULL));
+			return (ft_print_error("Error\nProbleme de carte19", NULL));//19
 		j++;
 	}
 	return (0);

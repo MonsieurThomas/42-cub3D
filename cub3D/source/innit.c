@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:00:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 15:52:55 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:09:25 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	put_texture_in_struc(t_data *data)
 	if (data->texture[0].img == NULL || \
 	data->texture[1].img == NULL || data->texture[2].img == NULL
 		|| data->texture[3].img == NULL)
-		return (ft_print_error("Error\nProbleme de textures", NULL));
+		return (ft_print_error("Error\nProbleme de textures1", NULL));//**1
 	if (get_textu_addr(data))
 		return (1);
 	return (0);
@@ -41,9 +41,12 @@ void	innit_values_reste(t_data *data)
 	data->color_f = 0;
 	data->is_map = 0;
 	data->parsing_main_loop = 0;
-	data->map_nb_lines = 0;
 	data->is_changed = 0;
 	data->rotspeed = 0.1;
+	data->no = NULL;
+	data->so = NULL;
+	data->we = NULL;
+	data->ea = NULL;
 }
 
 void	innit_values(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:51 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/20 18:12:52 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:09:49 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_any_weird_char(t_data *data)
 			if (data->map[i][j] != '0' && data->map[i][j] != '1' && \
 			(data->map[i][j] < 9 || data->map[i][j] > 13) && \
 			data->map[i][j] != ' ' && data->map[i][j] != '\n')
-				return (ft_print_error("Error\nProbleme de carte", NULL));
+				return (ft_print_error("Error\nProbleme de carte9", NULL));//9
 			j++;
 		}
 		i++;
@@ -55,9 +55,7 @@ int	is_frontier_around_zeros(t_data *data)
 			j++;
 		}
 		i++;
-	}
-	if (i != data->map_nb_lines)
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+	}// verif que ya pas de ligne vide 
 	return (0);
 }
 
@@ -74,6 +72,21 @@ int	is_problem_with_map(t_data *data)
 	return (0);
 }
 
+void	printf_strs(char **strs) //*********
+{
+	int	i;
+
+	i = 0;
+	if (strs)
+	{
+		while (strs[i])
+		{
+			printf("%d] %s\n", i, strs[i]);
+			i++;
+		}
+	}
+}
+
 int	create_new_map(t_data *data, int i)
 {
 	int		j;
@@ -83,19 +96,21 @@ int	create_new_map(t_data *data, int i)
 	j = i;
 	while (data->map[j])
 		j++;
-	data->map_nb_lines = j - i;
 	tab = (char **)malloc(sizeof(char *) * (j) + 1);
 	j = 0;
 	while (data->map[i])
 		tab[j++] = ft_strdup(data->map[i++]);
 	tab[j] = 0;
+	printf_strs(tab);//*************
 	free_tab(data->map);
 	data->map = (char **)malloc(sizeof(char *) * ((j) + 1));
 	i = -1;
 	while (tab[++i])
 		data->map[i] = ft_strdup(tab[i]);
 	data->map[i] = 0;
+	printf("Ici ok\n");//*********
 	free_tab(tab);
+	//system("leaks cub3D");//***********
 	if (is_problem_with_map(data))
 		return (1);
 	return (0);

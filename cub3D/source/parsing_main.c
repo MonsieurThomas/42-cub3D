@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:42 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/20 18:12:45 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:46:14 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_openning_texture(t_data *data)
 	(data->mlx, data->ea, &data->imgsiz, &data->imgsiz);
 	if (data->texture[0].img == NULL || data->texture[1].img == NULL \
 	|| data->texture[2].img == NULL || data->texture[3].img == NULL)
-		return (ft_print_error("Error\nProbleme de textures", NULL));
+		return (ft_print_error("Error\nProbleme de textures6", NULL));//6
 	return (0);
 }
 
@@ -93,9 +93,9 @@ int	parsing_main(t_data *data)
 		(data->i)++;
 	}
 	if (!data->is_map)
-		return (ft_print_error("Error\nProbleme de carte", NULL));
+		return (ft_print_error("Error\nProbleme de carte7", NULL));//7
 	if (data->wall != 4 || !data->color_c || !data->color_f)
-		return (ft_print_error("Error\nProbleme de textures", NULL));
+		return (ft_print_error("Error\nProbleme de textures8", NULL));//8
 	if (check_openning_texture(data))
 		return (1);
 	return (0);

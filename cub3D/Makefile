@@ -6,14 +6,14 @@
 #    By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 12:49:39 by rthomas           #+#    #+#              #
-#    Updated: 2023/04/20 18:16:11 by cleblais         ###   ########.fr        #
+#    Updated: 2023/04/20 20:03:01 by cleblais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = cub3D
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 SOURCES =	source/main.c \
 			source/secure_split.c \
