@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:44:13 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 17:12:43 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:37:04 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,33 @@ void	tab_to_space(t_data *data)
 	}
 }
 
+int	bad_coordinate(t_data *data, int x, int y)
+{
+	int	i;
+
+	i = 0;
+	while (i <= x)
+	{
+		if (!data->map[i])
+			return (1);
+		i++;
+	}
+	i = 0;
+	while (i <= y)
+	{
+		if (!data->map[x][i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	check_around_each_zero(t_data *data, int i, int j)
 {
-	if (i < 1 || j < 1 || !data->map || !data->map[i - 1] || !data->map[i] || !data->map[i + 1])
+	if (i < 1 || j < 1 || !data->map)
 		return (ft_print_error("Error\nProbleme de carte3", NULL));//3
-	if (!data->map[i - 1][j] || !data->map[i][j - 1] || !data->map[i][j + 1] || !data->map[i + 1][j])
+	if (bad_coordinate(data, i - 1, j) || bad_coordinate(data, i, j - 1) \
+		|| bad_coordinate(data, i, j + 1) || bad_coordinate(data, i + 1, j))
 		return (ft_print_error("Error\nProbleme de carte4", NULL));//4
 	if (data->map[i - 1][j] != '1' && data->map[i - 1][j] != '0')
 		return (ft_print_error("Error\nProbleme de carte5", NULL));//5
@@ -79,7 +101,7 @@ int	check_around_each_zero(t_data *data, int i, int j)
 	return (0);
 }
 
-int	check_whole_frontier(t_data *data)
+int	check_whole_frontier(t_data *data) // ATTENTION MAP 167 ok ?
 {
 	int	i;
 	int	j;

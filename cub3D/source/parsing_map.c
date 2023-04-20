@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:41:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 18:57:07 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:59:35 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	is_frontier_around_zeros(t_data *data)
 		}
 		i++;
 	}
+	if (i != data->map_nb_lines)
+		return (ft_print_error("Error\nProbleme de carte33", NULL));//33
 	return (0);
 }
 
@@ -81,6 +83,7 @@ int	create_new_map(t_data *data, int i)
 	j = i;
 	while (data->map[j])
 		j++;
+	data->map_nb_lines = j - i;
 	tab = (char **)malloc(sizeof(char *) * (j) + 1);
 	j = 0;
 	while (data->map[i])

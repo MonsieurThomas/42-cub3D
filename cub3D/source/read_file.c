@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:03:25 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/19 19:03:49 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:38:46 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	read_map(t_data *data)
 	{
 		line = get_next_line(fd);
 		data->map[data->i] = ft_strdup(line);
-		printf("data->i:%d\n", data->i);//*************SEGFAULT APRES SUREMENT FT_STRLEN
 		if (data->map[data->i][ft_strlen(line) - 1] == '\n')
 			data->map[data->i][ft_strlen(line) - 1] = 0;
 		free(line);

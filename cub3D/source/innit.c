@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   innit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:00:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:52:51 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/20 15:52:55 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	innit_values_reste(t_data *data)
 	data->color_f = 0;
 	data->is_map = 0;
 	data->parsing_main_loop = 0;
+	data->map_nb_lines = 0;
 	data->is_changed = 0;
 	data->rotspeed = 0.1;
 }

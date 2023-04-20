@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:21:03 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/19 13:37:40 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:52:22 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ typedef struct s_data
 	char			player_pov;
 	int				player_nb;
 	int				is_map;
+	int				map_nb_lines;
 	int				is_changed;
 }					t_data;
 
