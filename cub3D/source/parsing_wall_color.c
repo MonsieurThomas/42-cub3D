@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_wall_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:13:12 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/21 17:18:59 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:05:45 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	put_wall_in_struct(t_data *data, int i)
 	{
 		if (str)
 			free_tab(str);
-		return (ft_print_error("Error\nTexture problem21", NULL));//21
+		return (ft_print_error("Error\nTexture problem", NULL));
 	}
 	if (!ft_strncmp(data->map[i], "NO ", 3) && !data->no)
 		data->no = ft_strdup(str[1]);
@@ -42,7 +42,7 @@ int	is_color_legit(t_data *data, char letter)
 	{
 		if (data->color_f != 1 || data->f1 < 0 || data->f2 < 0 || \
 		data->f3 < 0 || data->f1 > 255 || data->f2 > 255 || data->f3 > 255)
-			return (ft_print_error("Error\nColor problem22", NULL));//22
+			return (ft_print_error("Error\nColor problem", NULL));
 		else
 			data->floor_color = (data->f1 << 16) | (data->f2 << 8) | (data->f3);
 	}
@@ -50,7 +50,7 @@ int	is_color_legit(t_data *data, char letter)
 	{
 		if (data->color_c != 1 || data->c1 < 0 || data->c2 < 0 || \
 			data->c3 < 0 || data->c1 > 255 || data->c2 > 255 || data->c3 > 255)
-			return (ft_print_error("Error\nColor problem23", NULL));//23
+			return (ft_print_error("Error\nColor problem", NULL));
 		else
 			data->ceil_color = (data->c1 << 16) | (data->c2 << 8) | (data->c3);
 	}
@@ -101,48 +101,23 @@ int	set_color_to_struct(t_data *data, int i, char ***tab)
 	return (0);
 }
 
-char	*str_remove_charset(char *str, char *set)
-{
-	int		i;
-	int		j;
-	char	*new;
-	char	*buf;
-
-	i = -1;
-	j = -1;
-	if (!str)
-		return (NULL);
-	buf = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!buf)
-		return (NULL);
-	while (str[++i])
-	{
-		if (!ft_strchr(set, str[i]))
-			buf[++j] = str[i];
-	}
-	buf[++j] = '\0';
-	new = ft_strdup(buf);
-	free(buf);
-	return (new);
-}
-
 int	get_color(t_data *data, int i)
 {
 	char	*str;
 	char	**tab;
 
 	if (nb_commas(data->map[i]) != 2)
-		return (ft_print_error("Error\nColor problem40", NULL));//40
+		return (ft_print_error("Error\nColor problem", NULL));
 	str = str_remove_charset(data->map[i], " CF");
 	if (!str)
-		return (ft_print_error("Error\nColor problem41", NULL));//41
+		return (ft_print_error("Error\nColor problem", NULL));
 	tab = secure_split(str, ',');
 	free(str);
 	if (!tab || !tab[0] || !tab[1] || !tab[2] || tab[3])
 	{
 		if (tab)
 			free_tab(tab);
-		return (ft_print_error("Error\nColor problem26", NULL));//26
+		return (ft_print_error("Error\nColor problem", NULL));
 	}
 	if (set_color_to_struct(data, i, &tab))
 		return (1);

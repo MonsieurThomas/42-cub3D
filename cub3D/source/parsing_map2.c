@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:58 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/21 16:40:15 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:07:12 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,18 +86,18 @@ int	bad_coordinate(t_data *data, int x, int y)
 int	check_around_each_zero(t_data *data, int i, int j)
 {
 	if (i < 1 || j < 1 || !data->map)
-		return (ft_print_error("Error\nMap problem11", NULL));//11
+		return (ft_print_error("Error\nMap problem", NULL));
 	if (bad_coordinate(data, i - 1, j) || bad_coordinate(data, i, j - 1) \
 		|| bad_coordinate(data, i, j + 1) || bad_coordinate(data, i + 1, j))
-		return (ft_print_error("Error\nMap problem12", NULL));//12
+		return (ft_print_error("Error\nMap problem", NULL));
 	if (data->map[i - 1][j] != '1' && data->map[i - 1][j] != '0')
-		return (ft_print_error("Error\nMap problem13", NULL));//13
+		return (ft_print_error("Error\nMap problem", NULL));
 	if (data->map[i + 1][j] != '1' && data->map[i + 1][j] != '0')
-		return (ft_print_error("Error\nMap problem14", NULL));//14
+		return (ft_print_error("Error\nMap problem", NULL));
 	if (data->map[i][j + 1] != '1' && data->map[i][j + 1] != '0')
-		return (ft_print_error("Error\nMap problem15", NULL));//15
+		return (ft_print_error("Error\nMap problem", NULL));
 	if (data->map[i][j - 1] != '1' && data->map[i][j - 1] != '0')
-		return (ft_print_error("Error\nMap problem16", NULL));//16
+		return (ft_print_error("Error\nMap problem", NULL));
 	return (0);
 }
 
@@ -110,17 +110,17 @@ int	check_whole_frontier(t_data *data)
 	j = 0;
 	while (data->map[0][++i])
 		if (data->map[0][i] == '0')
-			return (ft_print_error("Error\nMap problem17", NULL));//17
+			return (ft_print_error("Error\nMap problem", NULL));
 	i = -1;
 	while (data->map[++i])
 		if (data->map[i][0] == '0' || \
 		data->map[i][ft_strlen(data->map[i]) - 1] == '0')
-			return (ft_print_error("Error\nMap problem18", NULL));//18
+			return (ft_print_error("Error\nMap problem", NULL));
 	i--;
 	while (data->map[i][j])
 	{
 		if (data->map[i][j] == '0')
-			return (ft_print_error("Error\nMap problem19", NULL));//19
+			return (ft_print_error("Error\nMap problem", NULL));
 		j++;
 	}
 	return (0);

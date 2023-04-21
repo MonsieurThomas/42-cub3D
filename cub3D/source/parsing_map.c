@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:51 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/21 16:39:45 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:12:15 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_any_weird_char(t_data *data)
 			if (data->map[i][j] != '0' && data->map[i][j] != '1' && \
 			(data->map[i][j] < 9 || data->map[i][j] > 13) && \
 			data->map[i][j] != ' ' && data->map[i][j] != '\n')
-				return (ft_print_error("Error\nMap problem9", NULL));//9
+				return (ft_print_error("Error\nMap problem", NULL));
 			j++;
 		}
 		i++;
@@ -55,7 +55,7 @@ int	is_frontier_around_zeros(t_data *data)
 			j++;
 		}
 		i++;
-	}// verif que ya pas de ligne vide 
+	}
 	return (0);
 }
 
@@ -77,14 +77,13 @@ int	is_empty_line(t_data *data)
 			j++;
 		}
 		if (line_empty)
-			return (ft_print_error("Error\nMap problem30", NULL));//30
+			return (ft_print_error("Error\nMap problem", NULL));
 		line_empty = 1;
 		j = 0;
 		i++;
 	}
-	return(0);
+	return (0);
 }
-
 
 int	is_problem_with_map(t_data *data)
 {

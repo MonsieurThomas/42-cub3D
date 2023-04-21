@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:02:52 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/21 13:50:28 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:07:29 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,29 @@ void	free_tab(char **tab)
 		i++;
 	}
 	free(tab);
+}
+
+char	*str_remove_charset(char *str, char *set)
+{
+	int		i;
+	int		j;
+	char	*new;
+	char	*buf;
+
+	i = -1;
+	j = -1;
+	if (!str)
+		return (NULL);
+	buf = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (!buf)
+		return (NULL);
+	while (str[++i])
+	{
+		if (!ft_strchr(set, str[i]))
+			buf[++j] = str[i];
+	}
+	buf[++j] = '\0';
+	new = ft_strdup(buf);
+	free(buf);
+	return (new);
 }

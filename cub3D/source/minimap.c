@@ -6,7 +6,7 @@
 /*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 17:55:45 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:56:24 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/21 19:08:38 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	show_minimap(t_data *data)
 			data->jmax = data->j;
 		data->i++;
 	}
+	if (data->jmax > 100)
+		return ;
 	data->j = data->jmax;
 	data->div_x = 100 / data->i;
 	data->div_y = 100 / data->j;

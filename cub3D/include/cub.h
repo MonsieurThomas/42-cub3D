@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:21:03 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/21 16:38:58 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:17:34 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,5 +182,6 @@ void				choose_texture(t_data *data);
 void				tab_to_space(t_data *data);
 int					nb_commas(char *str);
 char				**secure_split(char *s, char c);
+char				*str_remove_charset(char *str, char *set);
 
 #endif

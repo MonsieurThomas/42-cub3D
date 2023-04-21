@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+         #
+#    By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 12:49:39 by rthomas           #+#    #+#              #
-#    Updated: 2023/04/21 12:16:30 by cleblais         ###   ########.fr        #
+#    Updated: 2023/04/21 18:33:25 by romainthoma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ OBJS = $(SOURCES:.c=.o)
 all:		libft $(NAME)
 
 $(NAME):	$(MLX) $(OBJS)
-			#gcc $(CFLAGS) $(OBJS) ./libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -o $(NAME)
-			gcc $(CFLAGS) $(OBJS) ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+			gcc $(CFLAGS) $(OBJS) ./libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -o $(NAME)
+			#gcc $(CFLAGS) $(OBJS) ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(MLX):
 				@$(MAKE) -C mlx

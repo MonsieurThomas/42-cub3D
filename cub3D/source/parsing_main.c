@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:42 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/21 16:39:38 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:10:54 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_openning_texture(t_data *data)
 	(data->mlx, data->ea, &data->imgsiz, &data->imgsiz);
 	if (data->texture[0].img == NULL || data->texture[1].img == NULL \
 	|| data->texture[2].img == NULL || data->texture[3].img == NULL)
-		return (ft_print_error("Error\nTexture problem6", NULL));//6
+		return (ft_print_error("Error\nTexture problem", NULL));
 	return (0);
 }
 
@@ -35,8 +35,14 @@ int	is_other_element(t_data *data, int i)
 	j = 0;
 	while (data->map[i][j])
 	{
-		if (data->map[i][j] != ' ' && data->map[i][j] != '1')
+		if (data->map[i][j] != ' ' && data->map[i][j] != '1' && \
+		(data->map[i][j] < 9 || data->map[i][j] > 13))
+		{
+			printf("i = %d\n", i);
+			printf("j = %d\n", j);
+			printf("data->map[i][j] = '%c'\n", data->map[i][j]);
 			return (ft_print_error("Error\nElement problem", NULL));
+		}
 		j++;
 	}
 	return (0);
@@ -80,9 +86,9 @@ int	parsing_main(t_data *data)
 		(data->i)++;
 	}
 	if (!data->is_map)
-		return (ft_print_error("Error\nMap problem7", NULL));//7
+		return (ft_print_error("Error\nMap problem", NULL));
 	if (data->wall != 4 || !data->color_c || !data->color_f)
-		return (ft_print_error("Error\nTexture problem8", NULL));//8
+		return (ft_print_error("Error\nTexture problem", NULL));
 	if (check_openning_texture(data))
 		return (1);
 	return (0);

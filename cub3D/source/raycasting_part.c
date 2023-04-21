@@ -6,7 +6,7 @@
 /*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 22:33:21 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/17 22:50:09 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/21 19:12:36 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void	getting_predeltas(t_data *data)
 
 void	getting_deltas(t_data *data)
 {
-	data->delta_y = sqrt(1 + (data->ray_x * data->ray_x) \
-	/ (data->ray_y * data->ray_y));
-	data->delta_x = sqrt(1 + (data->ray_y * data->ray_y) \
-	/ (data->ray_x * data->ray_x));
+		data->delta_y = sqrt(1 + (data->ray_x * data->ray_x) \
+		/ (data->ray_y * data->ray_y));
+		data->delta_x = sqrt(1 + (data->ray_y * data->ray_y) \
+		/ (data->ray_x * data->ray_x));
 }
 
 void	is_hit(t_data *data)

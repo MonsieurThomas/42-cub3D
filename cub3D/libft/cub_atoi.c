@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:11:09 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/21 16:51:53 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:17:11 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	cub_atoi(const char *str)
 	long int	neg;
 	long int	result;
 	int			nb_char;
-	
+
 	nb_char = ft_strlen(str);
 	i = 0;
 	neg = 1;
@@ -34,8 +34,8 @@ int	cub_atoi(const char *str)
 	}
 	if (result > 2147483647 || result < -2147483648)
 		return (-1);
-	if (nb_char > 3 || (nb_char == 3 && (result * neg) < 100) || (nb_char == 2 && \
-		(result * neg) < 10) || nb_char == 0)
+	if (nb_char > 3 || (nb_char == 3 && (result * neg) < 100) \
+	|| (nb_char == 2 && (result * neg) < 10) || nb_char == 0)
 		return (-1);
 	return (result * neg);
 }
