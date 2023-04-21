@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rthomas <rthomas@student.42nice.fr>        +#+  +:+       +#+         #
+#    By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 12:49:39 by rthomas           #+#    #+#              #
-#    Updated: 2022/04/06 18:07:58 by rthomas          ###   ########.fr        #
+#    Updated: 2023/04/21 16:41:33 by cleblais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SOURCES = \
-ft_atoi.c ft_isascii.c ft_memcpy.c ft_strlcat.c ft_strrchr.c \
+cub_atoi.c ft_isascii.c ft_memcpy.c ft_strlcat.c ft_strrchr.c \
 ft_bzero.c ft_isdigit.c ft_memmove.c ft_strlcpy.c ft_tolower.c \
 ft_calloc.c ft_isprint.c ft_memset.c ft_strlen.c ft_toupper.c \
 ft_isalnum.c ft_memchr.c ft_strchr.c ft_strncmp.c \

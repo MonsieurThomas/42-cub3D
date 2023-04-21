@@ -5,14 +5,11 @@
 # include <unistd.h>
 #include <string.h>
 
-
 #define PURPLE "\033[1;35m\033[1m"
 #define YELLOW "\033[1;33m\033[1m"
 #define WHITE "\033[0m"
 #define GREEN "\033[1;32m\033[1m"
 #define RED "\033[1;31m\033[1m"
-
-
 
 int	ft_strlen(char *str)
 {

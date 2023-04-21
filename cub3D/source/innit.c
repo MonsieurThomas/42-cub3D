@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:00:56 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 20:09:25 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:39:04 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	put_texture_in_struc(t_data *data)
 	if (data->texture[0].img == NULL || \
 	data->texture[1].img == NULL || data->texture[2].img == NULL
 		|| data->texture[3].img == NULL)
-		return (ft_print_error("Error\nProbleme de textures1", NULL));//**1
+		return (ft_print_error("Error\nTexture problem1", NULL));//**1
 	if (get_textu_addr(data))
 		return (1);
 	return (0);

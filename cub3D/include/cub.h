@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:21:03 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/20 20:09:20 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:38:58 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,6 @@ int					get_nb_line(t_data *data);
 int					read_map(t_data *data);
 int					key_released(int keycode, t_data *data);
 int					key_pressed(int keycode, t_data *data);
-int					ft_print_error(char *str, char *arg);
 int					ft_destroy_windows(t_data *data);
 int					get_textu_addr(t_data *data);
 unsigned int		get_color_textu(t_data *data, int x, int y, int nb);

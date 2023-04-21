@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:10:16 by rthomas           #+#    #+#             */
-/*   Updated: 2023/04/21 12:06:47 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:19:38 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,17 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac < 2 || ac > 2)
-		return (ft_print_error("Error\nProbleme d'arguments2", NULL));//**2
+		return (ft_print_error("Error\nArgument problem2", NULL));//**2
 	if (is_av1_legit(av[1]))
 		return (1);
 	data.av = av[1];
 	innit_values(&data);
-	read_map(&data);
+	if (read_map(&data))
+		return (1);
 	if (parsing_main(&data))
 	{
-		printf("======= LEAKS %s ========\n", av[1]);//******************
-		system("leaks cub3D");//***********
+		// printf("======= LEAKS %s ========\n", av[1]);//******************
+		// system("leaks cub3D");//***********
 		return (1);
 	}
 	data.player_x += 0.5;

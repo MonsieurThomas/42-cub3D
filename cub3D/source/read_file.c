@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:03:25 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 18:54:24 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:36:52 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ int	read_map(t_data *data)
 	while (data->i < nb_line)
 	{
 		line = get_next_line(fd);
+		if (ft_strlen(line) > 101)
+		{
+			free(line);
+			return(ft_print_error("Error\nMap too big for MinilibX", NULL));
+		}
 		data->map[data->i] = ft_strdup(line);
 		if (data->map[data->i][ft_strlen(line) - 1] == '\n')
 			data->map[data->i][ft_strlen(line) - 1] = 0;
@@ -54,9 +59,9 @@ int	read_map(t_data *data)
 	}
 	if (data->i < 3)
 	{
-		ft_putstr_fd("Error\nProbleme de carte28\n", 1);//28
-		return (0);
+		ft_putstr_fd("Error\nMap problem28\n", 1);//28
+		return (1);
 	}
 	close(fd);
-	return (1);
+	return (0);
 }

@@ -3,8 +3,8 @@ SO ./texture/pomme.xpm
 WE ./texture/poire.xpm
 EA ./texture/mangue.xpm
 
-C 0,125,0
-F 150,0,40 
+C 0     ,125,     0
+F     150,0,     40 
 
 11111111111111111111111
 10000000000000000000001

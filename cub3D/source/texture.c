@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:05:53 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 18:54:33 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:41:04 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	get_textu_addr(t_data *data)
 	if (data->texture[0].addr == NULL || \
 	data->texture[1].addr == NULL || data->texture[2].addr == NULL
 		|| data->texture[3].addr == NULL)
-		return (ft_print_error("Error\nProbleme de textures29", NULL));//29
+		return (ft_print_error("Error\nTexture problem29", NULL));//29
 	return (0);
 }
 

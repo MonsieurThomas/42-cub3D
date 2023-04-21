@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rthomas <rthomas@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:25:29 by rthomas           #+#    #+#             */
-/*   Updated: 2022/04/06 18:02:24 by rthomas          ###   ########.fr       */
+/*   Updated: 2023/04/21 16:57:32 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	j = 0;
 	k = 0;
+	if (!s1)
+		return (NULL);
 	str = (char *)s1;
 	while (ft_is_in_set(str[i], set))
 		i++;

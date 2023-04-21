@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:13:04 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/20 18:53:23 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:40:20 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	where_is_player(t_data *data)
 		(data->i)++;
 	}
 	if (data->player_nb != 1)
-		return (ft_print_error("Error\nProbleme de joueur20", NULL));//20
+		return (ft_print_error("Error\nPlayer problem20", NULL));//20
 	return (0);
 }
 
