@@ -6,24 +6,11 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:42 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/20 19:46:14 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:51:35 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
-
-void	free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
 
 int	check_openning_texture(t_data *data)
 {
@@ -98,5 +85,19 @@ int	parsing_main(t_data *data)
 		return (ft_print_error("Error\nProbleme de textures8", NULL));//8
 	if (check_openning_texture(data))
 		return (1);
+	return (0);
+}
+
+int	is_beginning_of_map(t_data *data, int i)
+{
+	int	j;
+
+	j = 0;
+	while (data->map[i][j])
+	{
+		if (data->map[i][j] == '1')
+			return (1);
+		j++;
+	}
 	return (0);
 }

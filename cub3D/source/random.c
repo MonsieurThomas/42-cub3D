@@ -6,7 +6,7 @@
 /*   By: cleblais <cleblais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 18:02:52 by romainthoma       #+#    #+#             */
-/*   Updated: 2023/04/20 18:03:11 by cleblais         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:50:28 by cleblais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,17 @@ int	nb_commas(char *str)
 		i++;
 	}
 	return (nb_commas);
+}
+
+void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }
