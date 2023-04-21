@@ -6,7 +6,7 @@
 /*   By: romainthomas <romainthomas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:12:42 by cleblais          #+#    #+#             */
-/*   Updated: 2023/04/21 19:10:54 by romainthoma      ###   ########.fr       */
+/*   Updated: 2023/04/21 19:23:19 by romainthoma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ int	is_other_element(t_data *data, int i)
 	{
 		if (data->map[i][j] != ' ' && data->map[i][j] != '1' && \
 		(data->map[i][j] < 9 || data->map[i][j] > 13))
-		{
-			printf("i = %d\n", i);
-			printf("j = %d\n", j);
-			printf("data->map[i][j] = '%c'\n", data->map[i][j]);
 			return (ft_print_error("Error\nElement problem", NULL));
-		}
 		j++;
 	}
 	return (0);
